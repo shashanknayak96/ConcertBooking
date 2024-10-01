@@ -1,5 +1,8 @@
+using System.Reflection;
 using ConcertBooking.Application;
 using ConcertBooking.Application.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,12 @@ builder.Services.AddDbContext<ConcertBookingContext>((options) => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+
+// Fluent Validations
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateEventTypeValidator>();
+
+// Automapper
 builder.Services.AddAutoMapper(typeof(EventTypeMapping));
 
 // Services

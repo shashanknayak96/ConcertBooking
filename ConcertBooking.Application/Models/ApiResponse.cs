@@ -6,7 +6,7 @@ public class ApiResponse<T> {
 	public T Data { get; set; }
 	public List<string> Errors { get; set; }
 
-	public ApiResponse(bool success, string message, T data = default, List<string> errors = null) {
+	public ApiResponse(bool success, string message = "Success", T data = default, List<string> errors = null) {
 		Success = success;
 		Message = message;
 		Data = data;

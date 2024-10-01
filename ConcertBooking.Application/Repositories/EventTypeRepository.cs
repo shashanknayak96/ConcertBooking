@@ -1,8 +1,8 @@
 using ConcertBooking.Application;
 using ConcertBooking.Domain;
+using Microsoft.EntityFrameworkCore;
 
 public class EventTypeRepository : IEventTypeRepository {
-
 	private readonly ConcertBookingContext _context;
 
 	public EventTypeRepository(ConcertBookingContext context) {
@@ -14,12 +14,12 @@ public class EventTypeRepository : IEventTypeRepository {
 		await this._context.SaveChangesAsync();
 	}
 
-	public Task<IEnumerable<EventType>> GetAllEventsAsync() {
-		throw new NotImplementedException();
+	public async Task<IEnumerable<EventType>> GetAllEventsAsync() {
+		return await _context.EventType.ToListAsync();
 	}
 
-	public Task<EventType> GetByIdAsunc(Guid id) {
-		throw new NotImplementedException();
+	public async Task<EventType?> GetByNameAsync(string name) {
+		return await this._context.EventType.Where(et => et.Name == name).FirstOrDefaultAsync();
 	}
 
 	public Task RemoveEventTypeAsync(EventType eventType) {
