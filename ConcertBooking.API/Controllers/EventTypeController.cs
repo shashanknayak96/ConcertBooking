@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
-public class EventType : ControllerBase {
+public class EventTypeController : ControllerBase {
 	private readonly IEventTypeService _service;
 	private readonly IMapper _mapper;
 	private readonly IValidator<CreateEventType> _validator;
 
-	public EventType(IEventTypeService service, IMapper mapper, IValidator<CreateEventType> validator) {
+	public EventTypeController(IEventTypeService service, IMapper mapper, IValidator<CreateEventType> validator) {
 		_service = service;
 		_mapper = mapper;
 		_validator = validator;

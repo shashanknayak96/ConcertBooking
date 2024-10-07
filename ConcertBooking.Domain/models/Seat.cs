@@ -1,7 +1,6 @@
 namespace ConcertBooking.Domain;
 
-public class Seat : BaseClass {
-	public int SeatName { get; set; }
+public class Seat : BaseName {
 	public Guid VenueId { get; set; }
 
 	public virtual Venue Venue{ get; set; }

@@ -23,8 +23,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateEventTypeValidator>()
 builder.Services.AddAutoMapper(typeof(EventTypeMapping));
 
 // Services
-builder.Services.AddScoped<IEventTypeRepository, EventTypeRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IEventTypeService, EventTypeService>();
+builder.Services.AddScoped<IVenueService, VenueService>();
 
 var app = builder.Build();
 

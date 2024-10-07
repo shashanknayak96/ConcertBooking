@@ -1,7 +1,6 @@
 namespace ConcertBooking.Domain;
 
-public class Event : BaseClass {
-	public string Name { get; set; }
+public class Event : BaseName {
 	public DateTime EventDate { get; set; }
 	public Guid EventTypeId { get; set; }
 
